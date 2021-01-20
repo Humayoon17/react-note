@@ -12,10 +12,13 @@ export default function Note({
   isPageRefreshed,
 }) {
   const coverDevRef = useRef();
+  const inputRef = useRef();
+
   const [noteInput, setNoteInput] = useState(note);
 
   document.addEventListener(
     'DOMContentLoaded',
+
     function () {
       if (isPageRefreshed) {
         const exists = document.querySelectorAll('.show-cover-dev');
@@ -30,6 +33,7 @@ export default function Note({
 
   const handleEdit = () => {
     coverDevRef.current.classList.toggle('show-cover-dev');
+    inputRef.current.focus();
   };
 
   const handleSave = () => {
@@ -55,30 +59,7 @@ export default function Note({
   };
 
   function getDate(dateValue) {
-    const date = new Date(dateValue);
-    const day = date.getDay();
-    const month = getMonth(date.getMonth());
-    const year = date.getFullYear();
-
-    return month + '-' + day + '-' + year;
-  }
-
-  function getMonth(month) {
-    const monthShortNames = [
-      'Jan',
-      'Feb',
-      'Mar',
-      'Apr',
-      'May',
-      'Jun',
-      'Jul',
-      'Aug',
-      'Sep',
-      'Oct',
-      'Nov',
-      'Dec',
-    ];
-    return monthShortNames[month];
+    return new Date(dateValue).toDateString();
   }
 
   return (
@@ -87,6 +68,8 @@ export default function Note({
         <Save />
       </Button>
       <textarea
+        autoFocus
+        ref={inputRef}
         value={noteInput}
         onChange={(e) => setNoteInput(e.target.value)}
       />
