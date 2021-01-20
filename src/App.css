@@ -1,0 +1,260 @@
+:root {
+    --c1: #F1F3F8;
+    --c2: #BEC5D7;
+    --c3: #C6D947;
+    --c4: #F3542A;
+    --c5: #F5972C;
+    --c6: #7049F0;
+    --c7: #181511;
+    --c8: #0AA4F6;
+}
+
+.add-btn-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    justify-content: center;
+}
+
+.add-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 1rem;
+}
+
+.btn-add-new {
+    background-color: black !important;
+    color: white !important;
+}
+
+.colors-container {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation-name: animate;
+    animation-duration: 800ms;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.btn-add-new:hover .colors-container {
+    display: flex;
+}
+
+.colors-container>.MuiFab-root {
+    margin-right: 1rem !important;
+}
+
+.c2 {
+    background-color: var(--c2) !important;
+}
+
+.c3 {
+    background-color: var(--c3) !important;
+}
+
+.c4 {
+    background-color: var(--c4) !important;
+}
+
+.c5 {
+    background-color: var(--c5) !important;
+}
+
+.c6 {
+    background-color: var(--c6) !important;
+}
+
+.c7,
+.c7.cover-dev>.text,
+.c7.note>textarea {
+    background-color: var(--c7) !important;
+    color: white !important;
+}
+
+.c8 {
+    background-color: var(--c8) !important;
+}
+
+
+/* notes */
+
+.notes-container {
+    /* display: flex;
+    flex-wrap: wrap; */
+    margin-top: .5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: .6rem;
+    padding-top: 0;
+    font-size: medium;
+    color: black;
+    font-weight: 500;
+    font-family: inherit;
+    max-height: 245px;
+    height: 245px;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.note {
+    width: 300px;
+    height: 300px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    position: relative;
+    /* margin: 10px;
+        margin-top: 0; */
+}
+
+.cover-dev {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding: .6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll
+}
+
+.cover-dev::-webkit-scrollbar {
+    display: none;
+}
+
+.cover-dev .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.cover-dev .text {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: rgba(0, 0, 0, 0.782);
+    word-break: break-all;
+    overflow-wrap: break-word;
+}
+
+.cover-dev .text::-webkit-scrollbar {
+    display: none;
+}
+
+.btn-edit,
+.btn-save-note,
+.btn-delete {
+    color: white !important;
+    background-color: black !important;
+    min-height: 30px !important;
+    min-width: 30px !important;
+    max-height: 30px !important;
+    max-width: 30px !important;
+    border: none !important;
+    outline: none !important;
+    border-radius: 50% !important;
+}
+
+.btn-edit svg,
+.btn-save-note svg,
+.btn-delete svg {
+    font-size: 20px !important;
+}
+
+.btn-delete {
+    background-color: red !important;
+}
+
+.btn-save-note {
+    float: right;
+    margin: 5px !important;
+}
+
+.action-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action-btns>.btn-delete {
+    margin-right: 10px;
+}
+
+.show-cover-dev {
+    display: none !important;
+}
+
+
+/* Responsive */
+
+@media all and (max-width: 570px) {
+    .add-btn-container {
+        display: block !important;
+    }
+    .colors-container {
+        display: grid !important;
+        position: absolute !important;
+        right: 10px !important;
+        top: 5rem !important;
+        z-index: 1000 !important;
+    }
+    .colors-container>.MuiFab-root {
+        margin-top: 10px !important;
+    }
+    .btn-save-note {
+        float: left;
+    }
+    .cover-dev .info {
+        justify-content: flex-start;
+    }
+    .action-btns {
+        margin-left: 1rem;
+    }
+}
+
+@media all and (max-width: 350px) {
+    .note {
+        width: 200px !important;
+        height: 250px !important;
+    }
+    textarea {
+        max-height: 200px !important;
+        height: 200px !important;
+    }
+    .notes-container {
+        place-items: normal;
+        margin-left: 15px;
+    }
+}
