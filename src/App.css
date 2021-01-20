@@ -110,7 +110,7 @@ textarea {
     background-color: transparent;
     padding: .6rem;
     padding-top: 0;
-    font-size: medium;
+    font-size: large;
     color: black;
     font-weight: 500;
     font-family: inherit;
@@ -162,6 +162,7 @@ textarea::-webkit-scrollbar {
 .cover-dev .text {
     height: 100%;
     width: 100%;
+    font-size: large;
     overflow-y: scroll;
     overflow-x: hidden;
     color: rgba(0, 0, 0, 0.782);
