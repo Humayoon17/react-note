@@ -1,12 +1,14 @@
 import { Fab } from '@material-ui/core';
-import { Add } from '@material-ui/icons';
+import { Add, Close } from '@material-ui/icons';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const AddButton = ({ notes, handleNewNote, setIsPageRefreshed }) => {
   const [showColors, setShowColors] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleSelectColor = (e) => {
+    setIsClicked(false);
     setIsPageRefreshed(false);
     const className = e.target.getAttribute('btncolor');
     const newNote = {
@@ -25,12 +27,13 @@ const AddButton = ({ notes, handleNewNote, setIsPageRefreshed }) => {
       <div className='add-btn'>
         <Fab
           onClick={() => {
+            setIsClicked(!isClicked);
             setShowColors(!showColors);
           }}
           className='btn-add-new'
           aria-label='add'
         >
-          <Add />
+          {isClicked ? <Close /> : <Add />}
         </Fab>
       </div>
 
